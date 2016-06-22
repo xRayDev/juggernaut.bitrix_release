@@ -2,15 +2,17 @@
 
 /* @var $APPLICATION CMain */
 
-class Juggernaut extends CModule
+class olof_juggernaut extends CModule
 {
-    public $MODULE_ID = "olof.juggernaut";
-    public $MODULE_NAME = "olof.juggernaut";
-    public $MODULE_DESCRIPTION = "Альтернатива BitrixFramework";
+    var $MODULE_ID = "olof.juggernaut";
+    var $MODULE_NAME = "olof.juggernaut";
+    var $MODULE_DESCRIPTION = "Альтернатива BitrixFramework";
     
-    public $PARTNER_NAME = "Олоф";
-    public $PARTNER_URI = "http://www.olof.ru";
-    
+    function __construct() {
+		$this->PARTNER_NAME = "Олоф";
+    	$this->PARTNER_URI = "http://www.olof.ru";
+    }
+
     function DoInstall() {
         RegisterModule($this->MODULE_ID);
     }

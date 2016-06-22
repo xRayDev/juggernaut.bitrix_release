@@ -63,11 +63,11 @@ abstract class BaseComponent extends \CBitrixComponent
     protected function initProperties() {
         $this->request = Context::getCurrent()->getRequest();
         foreach ($this->arParams as $name => $value) {
-            if (property_exists($this, $name)) {
-                $this->$name = & is_numeric($value) ? +$value : $value;
-            }
             if ($name === "CACHE_TIME") {
                 $this->cacheTime = (int) $value;
+            }
+            elseif (property_exists($this, $name)) {
+                $this->$name = is_numeric($value) ? +$value : $value;
             }
         }
     }
